@@ -1,76 +1,77 @@
-document.addEventListener('DOMContentLoaded', function () {
-    const passwordEl = document.getElementById('password');
-    const lengthEl = document.getElementById('length');
-    const lengthValueEl = document.getElementById('length-value');
-    const generateBtn = document.getElementById('generate-btn');
-    const copyBtn = document.getElementById('copy-btn');
-    const toastEl = document.getElementById('toast');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  }
   
-    const includeUppercase = document.getElementById('include-uppercase');
-    const includeLowercase = document.getElementById('include-lowercase');
-    const includeNumbers = document.getElementById('include-numbers');
-    const includeSymbols = document.getElementById('include-symbols');
+  /* Body styles */
+  body {
+    background-color: #f4f7f6; /* or #f0f2f5 if you prefer */
+    color: #333;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    font-size: 16px;
+  }
   
-    const UPPERCASE = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    const LOWERCASE = "abcdefghijklmnopqrstuvwxyz";
-    const NUMBERS = "0123456789";
-    const SYMBOLS = "!@#$%^&*()_+-=[]{}|;:,.<>?";
+  /* Landing page */
+  .landing-page {
+    text-align: center;
+    padding: 2rem;
+    background: linear-gradient(135deg, #ff6f61, #ffbc00);
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px;
+  }
   
-    lengthEl.addEventListener('input', () => {
-      lengthValueEl.textContent = `${lengthEl.value} characters`;
-      generatePassword();
-    });
+  .landing-page h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: #fff;
+  }
   
-    [includeUppercase, includeLowercase, includeNumbers, includeSymbols].forEach(el =>
-      el.addEventListener('change', generatePassword)
-    );
+  .landing-page p {
+    font-size: 1rem;
+    color: #fff;
+    margin-bottom: 2rem;
+  }
   
-    generateBtn.addEventListener('click', generatePassword);
+  .start-btn {
+    background-color: #4f46e5;
+    color: #fff;
+    padding: 0.8rem 1.5rem;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 50px;
+    transition: background-color 0.3s ease;
+    border: 2px solid transparent;
+  }
   
-    copyBtn.addEventListener('click', function () {
-      const password = passwordEl.textContent;
-      if (!password) return;
+  .start-btn:hover {
+    background-color: #4338ca;
+    border-color: #4338ca;
+  }
   
-      navigator.clipboard.writeText(password).then(() => {
-        toastEl.classList.add('show');
-        setTimeout(() => toastEl.classList.remove('show'), 2000);
-      });
-    });
+  /* Password generator */
+  .password-generator {
+    background-color: white;
+    border-radius: 10px;
+    padding: 2.5rem;
+    width: 100%;
+    max-width: 520px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  }
   
-    function generatePassword() {
-      const length = parseInt(lengthEl.value);
-      const charTypes = [];
+  h1 {
+    font-size: 1.8rem;
+    color: #333;
+    margin-bottom: 1rem;
+  }
   
-      if (includeUppercase.checked) charTypes.push(UPPERCASE);
-      if (includeLowercase.checked) charTypes.push(LOWERCASE);
-      if (includeNumbers.checked) charTypes.push(NUMBERS);
-      if (includeSymbols.checked) charTypes.push(SYMBOLS);
-  
-      if (charTypes.length === 0) {
-        passwordEl.textContent = "⚠ Select at least one option!";
-        return;
-      }
-  
-      let allChars = charTypes.join('');
-      let password = '';
-  
-      // Ensure at least one character from each selected set
-      charTypes.forEach(set => {
-        password += set[Math.floor(Math.random() * set.length)];
-      });
-  
-      // Fill the rest randomly
-      for (let i = charTypes.length; i < length; i++) {
-        password += allChars[Math.floor(Math.random() * allChars.length)];
-      }
-  
-      // Shuffle password
-      password = [...password].sort(() => Math.random() - 0.5).join('');
-  
-      passwordEl.textContent = password;
-    }
-  
-    // Initial password
-    generatePassword();
-  });
-  
+ 
