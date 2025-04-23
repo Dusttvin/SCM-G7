@@ -1,85 +1,76 @@
 document.addEventListener('DOMContentLoaded', function () {
-    // DOM elements
     const passwordEl = document.getElementById('password');
     const lengthEl = document.getElementById('length');
     const lengthValueEl = document.getElementById('length-value');
-    const specialCharsEl = document.getElementById('special-chars');
     const generateBtn = document.getElementById('generate-btn');
     const copyBtn = document.getElementById('copy-btn');
     const toastEl = document.getElementById('toast');
-
-    // Update length value display
-    lengthEl.addEventListener('input', function () {
-        const length = validateLength(lengthEl.value);
-        lengthValueEl.textContent = `${length} characters`;
-        generatePassword();
+  
+    const includeUppercase = document.getElementById('include-uppercase');
+    const includeLowercase = document.getElementById('include-lowercase');
+    const includeNumbers = document.getElementById('include-numbers');
+    const includeSymbols = document.getElementById('include-symbols');
+  
+    const UPPERCASE = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    const LOWERCASE = "abcdefghijklmnopqrstuvwxyz";
+    const NUMBERS = "0123456789";
+    const SYMBOLS = "!@#$%^&*()_+-=[]{}|;:,.<>?";
+  
+    lengthEl.addEventListener('input', () => {
+      lengthValueEl.textContent = `${lengthEl.value} characters`;
+      generatePassword();
     });
-
-    // Toggle special characters
-    specialCharsEl.addEventListener('change', generatePassword);
-
-    // Generate button click
+  
+    [includeUppercase, includeLowercase, includeNumbers, includeSymbols].forEach(el =>
+      el.addEventListener('change', generatePassword)
+    );
+  
     generateBtn.addEventListener('click', generatePassword);
-
-    // Copy button click
-    copyBtn.addEventListener('click', copyToClipboard);
-
-    // Generate password function
-    function generatePassword() {
-        const length = validateLength(lengthEl.value);
-        const includeSpecialChars = specialCharsEl.checked;
-
-        const lowerChars = "abcdefghijklmnopqrstuvwxyz";
-        const upperChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-        const numbers = "0123456789";
-        const specialChars = "!@#$%^&*()_-+=<>?/{}[]|";
-
-        let chars = lowerChars + upperChars + numbers;
-        if (includeSpecialChars) chars += specialChars;
-
-        // Ensure at least one character type is selected
-        if (!includeSpecialChars && chars === lowerChars + upperChars + numbers) {
-            passwordEl.textContent = "⚠️ Select at least one option!";
-            return;
-        }
-
-        let newPassword = "";
-        for (let i = 0; i < length; i++) {
-            const randomIndex = Math.floor(Math.random() * chars.length);
-            newPassword += chars[randomIndex];
-        }
-
-        passwordEl.textContent = newPassword;
-    }
-
-    // Copy to clipboard function
-    function copyToClipboard() {
-        const password = passwordEl.textContent;
-
-        if (!password || password.includes("⚠️")) return;
-
-        navigator.clipboard.writeText(password).then(() => {
-            showToast();
-        }).catch(err => {
-            console.error("Failed to copy: ", err);
-        });
-    }
-
-    // Validate length input
-    function validateLength(value) {
-        let length = parseInt(value, 10);
-        if (isNaN(length) || length < 1) length = 8; // Default length
-        return Math.min(Math.max(length, 1), 128); // Clamp between 1 and 128
-    }
-
-    // Show toast notification
-    function showToast() {
+  
+    copyBtn.addEventListener('click', function () {
+      const password = passwordEl.textContent;
+      if (!password) return;
+  
+      navigator.clipboard.writeText(password).then(() => {
         toastEl.classList.add('show');
-        setTimeout(() => {
-            toastEl.classList.remove('show');
-        }, 2000);
+        setTimeout(() => toastEl.classList.remove('show'), 2000);
+      });
+    });
+  
+    function generatePassword() {
+      const length = parseInt(lengthEl.value);
+      const charTypes = [];
+  
+      if (includeUppercase.checked) charTypes.push(UPPERCASE);
+      if (includeLowercase.checked) charTypes.push(LOWERCASE);
+      if (includeNumbers.checked) charTypes.push(NUMBERS);
+      if (includeSymbols.checked) charTypes.push(SYMBOLS);
+  
+      if (charTypes.length === 0) {
+        passwordEl.textContent = "⚠ Select at least one option!";
+        return;
+      }
+  
+      let allChars = charTypes.join('');
+      let password = '';
+  
+      // Ensure at least one character from each selected set
+      charTypes.forEach(set => {
+        password += set[Math.floor(Math.random() * set.length)];
+      });
+  
+      // Fill the rest randomly
+      for (let i = charTypes.length; i < length; i++) {
+        password += allChars[Math.floor(Math.random() * allChars.length)];
+      }
+  
+      // Shuffle password
+      password = [...password].sort(() => Math.random() - 0.5).join('');
+  
+      passwordEl.textContent = password;
     }
-
-    // Generate initial password
+  
+    // Initial password
     generatePassword();
-});
+  });
+  
