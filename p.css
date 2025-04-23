@@ -1,1 +1,76 @@
-
+document.addEventListener('DOMContentLoaded', function () {
+    const passwordEl = document.getElementById('password');
+    const lengthEl = document.getElementById('length');
+    const lengthValueEl = document.getElementById('length-value');
+    const generateBtn = document.getElementById('generate-btn');
+    const copyBtn = document.getElementById('copy-btn');
+    const toastEl = document.getElementById('toast');
+  
+    const includeUppercase = document.getElementById('include-uppercase');
+    const includeLowercase = document.getElementById('include-lowercase');
+    const includeNumbers = document.getElementById('include-numbers');
+    const includeSymbols = document.getElementById('include-symbols');
+  
+    const UPPERCASE = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    const LOWERCASE = "abcdefghijklmnopqrstuvwxyz";
+    const NUMBERS = "0123456789";
+    const SYMBOLS = "!@#$%^&*()_+-=[]{}|;:,.<>?";
+  
+    lengthEl.addEventListener('input', () => {
+      lengthValueEl.textContent = `${lengthEl.value} characters`;
+      generatePassword();
+    });
+  
+    [includeUppercase, includeLowercase, includeNumbers, includeSymbols].forEach(el =>
+      el.addEventListener('change', generatePassword)
+    );
+  
+    generateBtn.addEventListener('click', generatePassword);
+  
+    copyBtn.addEventListener('click', function () {
+      const password = passwordEl.textContent;
+      if (!password) return;
+  
+      navigator.clipboard.writeText(password).then(() => {
+        toastEl.classList.add('show');
+        setTimeout(() => toastEl.classList.remove('show'), 2000);
+      });
+    });
+  
+    function generatePassword() {
+      const length = parseInt(lengthEl.value);
+      const charTypes = [];
+  
+      if (includeUppercase.checked) charTypes.push(UPPERCASE);
+      if (includeLowercase.checked) charTypes.push(LOWERCASE);
+      if (includeNumbers.checked) charTypes.push(NUMBERS);
+      if (includeSymbols.checked) charTypes.push(SYMBOLS);
+  
+      if (charTypes.length === 0) {
+        passwordEl.textContent = "⚠ Select at least one option!";
+        return;
+      }
+  
+      let allChars = charTypes.join('');
+      let password = '';
+  
+      // Ensure at least one character from each selected set
+      charTypes.forEach(set => {
+        password += set[Math.floor(Math.random() * set.length)];
+      });
+  
+      // Fill the rest randomly
+      for (let i = charTypes.length; i < length; i++) {
+        password += allChars[Math.floor(Math.random() * allChars.length)];
+      }
+  
+      // Shuffle password
+      password = [...password].sort(() => Math.random() - 0.5).join('');
+  
+      passwordEl.textContent = password;
+    }
+  
+    // Initial password
+    generatePassword();
+  });
+  
