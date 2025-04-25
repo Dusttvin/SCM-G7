@@ -1,98 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-
+<head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Advanced Password Generator</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Password Generator</title>
   <link rel="stylesheet" href="p.css" />
 </head>
 <body>
-
   <div class="container">
     <div class="password-generator">
       <h1>Password Generator</h1>
       <p class="description">Generate strong, secure passwords with customizable options.</p>
-
       <div class="password-display">
-        <span id="password"></span>
-        <button id="copy-btn" title="Copy to clipboard">📋</button>
+        <span id="password">Your password will appear here</span>
+        <button id="copy-btn">📋</button>
       </div>
-
+      <div id="strength-container">
+        <p id="strength-text">Strength: </p>
+      </div>
       <div class="settings">
-        <div class="setting">
-          <div class="setting-header">
-            <label for="length">Password Length</label>
-            <span id="length-value">12 characters</span>
-          </div>
-          <input type="range" id="length" min="6" max="32" value="12" class="slider" />
-
-    <div class="container">
-        <div class="password-generator">
-            <h1>Password Generator</h1>
-            <p class="description">Create strong, secure passwords with customizable options</p>
-            
-            <div class="password-display">
-                <span id="password"></span>
-                <button id="copy-btn" title="Copy to clipboard">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
-                        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
-                    </svg>
-                </button>
-            </div>
-            
-            <div class="settings">
-                <div class="setting">
-                    <div class="setting-header">
-                        <div class="setting-header"></div>
-                        <label for="length">Password Length</label>
-                        <span id="length-value">12 characters</span>
-                    </div>
-                    <input type="range" id="length" min="6" max="32" value="12" class="slider">
-                </div>
-                
-                <div class="setting checkbox-setting">
-                    <input type="checkbox" id="special-chars" checked>
-                    <label for="special-chars">Include Special Characters</label>
-                </div>
-            </div>
-            
-            <button id="generate-btn" class="generate-btn">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38"></path>
-                </svg>
-                Generate New Password
-            </button>
-            
-            <div id="toast" class="toast">Password copied to clipboard!</div>
-
-        </div>
-
-        <div class="setting checkbox-setting">
-          <input type="checkbox" id="include-uppercase" checked />
-          <label for="include-uppercase">Include Uppercase</label>
-        </div>
-        <div class="setting checkbox-setting">
-          <input type="checkbox" id="include-lowercase" checked />
-          <label for="include-lowercase">Include Lowercase</label>
-        </div>
-        <div class="setting checkbox-setting">
-          <input type="checkbox" id="include-numbers" checked />
-          <label for="include-numbers">Include Numbers</label>
-        </div>
-        <div class="setting checkbox-setting">
-          <input type="checkbox" id="include-symbols" checked />
-          <label for="include-symbols">Include Symbols</label>
-        </div>
+        <label>Password Length:
+          <input type="range" id="length" min="6" max="32" value="12" />
+          <span id="length-value">12 characters</span>
+        </label><br />
+        <label><input type="checkbox" id="include-uppercase" checked /> Uppercase</label><br />
+        <label><input type="checkbox" id="include-lowercase" checked /> Lowercase</label><br />
+        <label><input type="checkbox" id="include-numbers" checked /> Numbers</label><br />
+        <label><input type="checkbox" id="include-symbols" checked /> Symbols</label>
       </div>
-
-      <button id="generate-btn" class="generate-btn">🔁 Generate New Password</button>
-
-      <div id="toast" class="toast">Password copied to clipboard!</div>
+      <button class="generate-btn">Generate Password</button>
+      <div id="toast" class="toast">Copied!</div>
     </div>
   </div>
-
-  <script src="p.js"></script>
+  <script src="pass.js"></script>
 </body>
 </html>
+
