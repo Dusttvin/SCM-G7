@@ -17,19 +17,15 @@ document.addEventListener('DOMContentLoaded', function () {
   const NUMBERS = "0123456789";
   const SYMBOLS = "!@#$%^&*()_+-=[]{}|;:,.<>?";
 
-  // Update length value display when slider changes
   lengthEl.addEventListener('input', () => {
     lengthValueEl.textContent = `${lengthEl.value} characters`;
   });
 
-  // Only generate password when button is clicked
   generateBtn.addEventListener('click', generatePassword);
 
-  // Copy password to clipboard
   copyBtn.addEventListener('click', function () {
     const password = passwordEl.textContent.trim();
     if (!password || password.startsWith("⚠")) return;
-
     navigator.clipboard.writeText(password).then(() => {
       toastEl.classList.add('show');
       setTimeout(() => toastEl.classList.remove('show'), 2000);
@@ -39,7 +35,6 @@ document.addEventListener('DOMContentLoaded', function () {
   function generatePassword() {
     const length = parseInt(lengthEl.value);
     const charTypes = [];
-
     if (includeUppercase.checked) charTypes.push(UPPERCASE);
     if (includeLowercase.checked) charTypes.push(LOWERCASE);
     if (includeNumbers.checked) charTypes.push(NUMBERS);
@@ -55,24 +50,25 @@ document.addEventListener('DOMContentLoaded', function () {
     let allChars = charTypes.join('');
     let password = '';
 
-    // Ensure at least one character from each selected type
+    // Add one character from each selected type
     charTypes.forEach(set => {
       password += set[Math.floor(Math.random() * set.length)];
     });
 
-    // Fill the rest of the password length
+    // Fill the rest of the password
     for (let i = charTypes.length; i < length; i++) {
       password += allChars[Math.floor(Math.random() * allChars.length)];
     }
 
+    // Shuffle to remove predictable pattern
     password = shuffleString(password);
+
     passwordEl.textContent = password;
     checkStrength(password);
   }
 
   function checkStrength(password) {
     let strength = 0;
-
     if (password.length >= 8) strength++;
     if (/[A-Z]/.test(password)) strength++;
     if (/[0-9]/.test(password)) strength++;
@@ -99,7 +95,7 @@ document.addEventListener('DOMContentLoaded', function () {
     return arr.join('');
   }
 
-  // Set initial slider value display (optional)
+  // Set initial slider value
   lengthValueEl.textContent = `${lengthEl.value} characters`;
 });
 
