@@ -1,77 +1,184 @@
-
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
-  }
-  
-  /* Body styles */
-  body {
-    background-color: #f4f7f6; /* or #f0f2f5 if you prefer */
-    color: #333;
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 1.5rem;
-    font-size: 16px;
-  }
-  
-  /* Landing page */
-  .landing-page {
-    text-align: center;
-    padding: 2rem;
-    background: linear-gradient(135deg, #ff6f61, #ffbc00);
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 500px;
-  }
-  
-  .landing-page h1 {
-    font-size: 2rem;
-    font-weight: 700;
-    margin-bottom: 1rem;
-    color: #fff;
-  }
-  
-  .landing-page p {
-    font-size: 1rem;
-    color: #fff;
-    margin-bottom: 2rem;
-  }
-  
-  .start-btn {
-    background-color: #4f46e5;
-    color: #fff;
-    padding: 0.8rem 1.5rem;
-    text-decoration: none;
-    font-weight: bold;
-    border-radius: 50px;
-    transition: background-color 0.3s ease;
-    border: 2px solid transparent;
-  }
-  
-  .start-btn:hover {
-    background-color: #4338ca;
-    border-color: #4338ca;
-  }
-  
-  /* Password generator */
-  .password-generator {
-    background-color: white;
-    border-radius: 10px;
-    padding: 2.5rem;
-    width: 100%;
-    max-width: 520px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-  }
-  
-  h1 {
-    font-size: 1.8rem;
-    color: #333;
-    margin-bottom: 1rem;
-  }
-  
- 
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background: linear-gradient(120deg, #e0e7ff 0%, #f0f2f5 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 1rem;
+}
+
+.container {
+  width: 100%;
+  max-width: 540px;
+}
+
+.copy-btn {
+  background: #e0e7ff;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  border-radius: 6px;
+  padding: 0.4rem 0.7rem;
+  margin-left: 0.5rem;
+  color: #4f46e5;
+  transition: background 0.2s, color 0.2s;
+}
+
+.copy-btn:hover {
+  background: #6366f1;
+  color: #fff;
+}
+
+
+.password-generator h1 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  text-align: center;
+  color: #22223b;
+  letter-spacing: 0.02em;
+}
+
+.password-generator .description {
+  text-align: center;
+  margin-bottom: 1.8rem;
+  color: #6b7280;
+  font-size: 1rem;
+}
+
+.password-display {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #f5f5fa;
+  border-radius: 8px;
+  padding: 1rem 1.2rem;
+  margin-bottom: 1.2rem;
+  font-size: 1.2rem;
+  word-break: break-all;
+  border: 1px solid #e0e7ff;
+}
+
+.copy-btn {
+  background: #e0e7ff;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  border-radius: 6px;
+  padding: 0.4rem 0.7rem;
+  margin-left: 0.5rem;
+  color: #4f46e5;
+  transition: background 0.2s, color 0.2s;
+}
+
+#copy-btn:hover {
+  background: #6366f1;
+  color: #fff;
+}
+
+#strength-container {
+  margin-bottom: 1rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+#strength-text {
+  color: #2563eb;
+  font-weight: 600;
+  font-size: 1rem;
+  letter-spacing: 0.01em;
+}
+
+.settings {
+  margin-top: 1rem;
+}
+
+.setting {
+  margin-bottom: 1.2rem;
+}
+
+.setting-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.3rem;
+  font-size: 1rem;
+  color: #444;
+}
+
+input[type="range"] {
+  width: 100%;
+  accent-color: #6366f1;
+  height: 3px;
+  margin-top: 0.3rem;
+}
+
+.checkbox-setting {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 1rem;
+}
+
+.checkbox-setting input[type="checkbox"] {
+  accent-color: #4f46e5;
+  width: 1.1rem;
+  height: 1.1rem;
+}
+
+.generate-btn {
+  display: block;                   /* Makes the button a block element */
+  margin: 2.5rem auto 0 auto;       /* Centers the button horizontally */
+  background: linear-gradient(90deg, #7c3aed 0%, #4f46e5 100%);
+  color: #fff;
+  border: none;
+  padding: 1.2rem 0;                /* Makes the button taller */
+  border-radius: 14px;
+  font-size: 1.5rem;                /* Makes the text bigger */
+  font-weight: 700;
+  cursor: pointer;
+  width: 85%;                       /* Makes the button wide but not full width */
+  max-width: 380px;                 /* Maximum width for large screens */
+  box-shadow: 0 8px 32px rgba(79, 70, 229, 0.18);
+  letter-spacing: 0.04em;
+  transition: background 0.25s, transform 0.15s, box-shadow 0.25s;
+  text-align: center;               /* Ensures text is centered */
+}
+
+.generate-btn:hover,
+.generate-btn:focus {
+  background: linear-gradient(90deg, #4f46e5 0%, #7c3aed 100%);
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 16px 40px rgba(79, 70, 229, 0.22);
+  outline: none;
+}
+
+
+.toast {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #333;
+  color: white;
+  padding: 0.85rem 1.4rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s;
+  z-index: 999;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+}
+
+.toast.show {
+  opacity: 1;
+  pointer-events: all;
+}
