@@ -148,20 +148,20 @@ input[type="range"] {
   width: 85%;                       
   max-width: 380px;                 /* Maximum width for large screens */
   box-shadow: 0 8px 32px rgba(79, 70, 229, 0.18);
-  letter-spacing: 0.04em;
+  letter-spacing: 0.04em;/* COMMENT */
   transition: background 0.25s, transform 0.15s, box-shadow 0.25s;
   text-align: center;               /* Ensures text is centered */
-}
+}/* COMMENT */
 /* COMMENT */
-.generate-btn:hover,
-.generate-btn:focus {
-  background: linear-gradient(90deg, #4f46e5 0%, #7c3aed 100%);
+.generate-btn:hover,/* COMMENT */
+.generate-btn:focus {/* COMMENT */
+  background: linear-gradient(90deg, #4f46e5 0%, #7c3aed 100%);/* COMMENT */
   transform: translateY(-3px) scale(1.05);
   box-shadow: 0 16px 40px rgba(79, 70, 229, 0.22);
   outline: none;
 }
 /* COMMENT */
-
+/* COMMENT */
 .toast {
   position: fixed;
   bottom: 30px;
