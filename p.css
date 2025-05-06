@@ -82,7 +82,7 @@ body {
   background: #6366f1;
   color: #fff;
 }
-
+/* COMMENT */
 #strength-container {
   margin-bottom: 1rem;
   font-weight: bold;
@@ -90,18 +90,18 @@ body {
   align-items: center;
   gap: 0.5rem;
 }
-
+/* COMMENT */
 #strength-text {
   color: #2563eb;
   font-weight: 600;
   font-size: 1rem;
   letter-spacing: 0.01em;
 }
-
+/* COMMENT */
 .settings {
   margin-top: 1rem;
 }
-
+/* COMMENT */
 .setting {
   margin-bottom: 1.2rem;
 }
