@@ -152,7 +152,7 @@ input[type="range"] {
   transition: background 0.25s, transform 0.15s, box-shadow 0.25s;
   text-align: center;               /* Ensures text is centered */
 }
-
+/* COMMENT */
 .generate-btn:hover,
 .generate-btn:focus {
   background: linear-gradient(90deg, #4f46e5 0%, #7c3aed 100%);
@@ -160,7 +160,7 @@ input[type="range"] {
   box-shadow: 0 16px 40px rgba(79, 70, 229, 0.22);
   outline: none;
 }
-
+/* COMMENT */
 
 .toast {
   position: fixed;
