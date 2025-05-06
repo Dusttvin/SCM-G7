@@ -1,10 +1,11 @@
+/* COMMENT */
 * {
-  margin: 0;
-  padding: 0;
+  margin: 0;/* COMMENT */
+  padding: 0;/* COMMENT */
   box-sizing: border-box;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-
+/* COMMENT */
 body {
   background: linear-gradient(120deg, #e0e7ff 0%, #f0f2f5 100%);
   display: flex;
@@ -13,12 +14,12 @@ body {
   min-height: 100vh;
   padding: 1rem;
 }
-
+/* COMMENT */
 .container {
   width: 100%;
   max-width: 540px;
 }
-
+/* COMMENT */
 .copy-btn {
   background: #e0e7ff;
   border: none;
@@ -30,13 +31,13 @@ body {
   color: #4f46e5;
   transition: background 0.2s, color 0.2s;
 }
-
+/* COMMENT */
 .copy-btn:hover {
   background: #6366f1;
   color: #fff;
 }
-
-
+/* COMMENT */
+/* COMMENT */
 .password-generator h1 {
   font-size: 2rem;
   margin-bottom: 0.5rem;
@@ -44,14 +45,14 @@ body {
   color: #22223b;
   letter-spacing: 0.02em;
 }
-
+/* COMMENT */
 .password-generator .description {
   text-align: center;
   margin-bottom: 1.8rem;
   color: #6b7280;
   font-size: 1rem;
 }
-
+/* COMMENT */
 .password-display {
   display: flex;
   align-items: center;
@@ -64,7 +65,7 @@ body {
   word-break: break-all;
   border: 1px solid #e0e7ff;
 }
-
+/* COMMENT */
 .copy-btn {
   background: #e0e7ff;
   border: none;
@@ -76,12 +77,12 @@ body {
   color: #4f46e5;
   transition: background 0.2s, color 0.2s;
 }
-
+/* COMMENT */
 #copy-btn:hover {
   background: #6366f1;
   color: #fff;
 }
-
+/* COMMENT */
 #strength-container {
   margin-bottom: 1rem;
   font-weight: bold;
@@ -89,22 +90,22 @@ body {
   align-items: center;
   gap: 0.5rem;
 }
-
+/* COMMENT */
 #strength-text {
   color: #2563eb;
   font-weight: 600;
   font-size: 1rem;
   letter-spacing: 0.01em;
 }
-
+/* COMMENT */
 .settings {
   margin-top: 1rem;
 }
-
+/* COMMENT */
 .setting {
   margin-bottom: 1.2rem;
 }
-
+/* COMMENT */
 .setting-header {
   display: flex;
   justify-content: space-between;
@@ -112,27 +113,27 @@ body {
   font-size: 1rem;
   color: #444;
 }
-
+/* COMMENT */
 input[type="range"] {
   width: 100%;
   accent-color: #6366f1;
   height: 3px;
   margin-top: 0.3rem;
 }
-
+/* COMMENT */
 .checkbox-setting {
   display: flex;
   align-items: center;
   gap: 0.6rem;
   font-size: 1rem;
 }
-
+/* COMMENT */
 .checkbox-setting input[type="checkbox"] {
   accent-color: #4f46e5;
   width: 1.1rem;
   height: 1.1rem;
 }
-
+/* COMMENT */
 .generate-btn {
   display: block;                   /* Makes the button a block element */
   margin: 2.5rem auto 0 auto;       /* Centers the button horizontally */
@@ -144,23 +145,23 @@ input[type="range"] {
   font-size: 1.5rem;                /* Makes the text bigger */
   font-weight: 700;
   cursor: pointer;
-  width: 85%;                       /* Makes the button wide but not full width */
+  width: 85%;                       
   max-width: 380px;                 /* Maximum width for large screens */
   box-shadow: 0 8px 32px rgba(79, 70, 229, 0.18);
-  letter-spacing: 0.04em;
+  letter-spacing: 0.04em;/* COMMENT */
   transition: background 0.25s, transform 0.15s, box-shadow 0.25s;
   text-align: center;               /* Ensures text is centered */
-}
-
-.generate-btn:hover,
-.generate-btn:focus {
-  background: linear-gradient(90deg, #4f46e5 0%, #7c3aed 100%);
+}/* COMMENT */
+/* COMMENT */
+.generate-btn:hover,/* COMMENT */
+.generate-btn:focus {/* COMMENT */
+  background: linear-gradient(90deg, #4f46e5 0%, #7c3aed 100%);/* COMMENT */
   transform: translateY(-3px) scale(1.05);
   box-shadow: 0 16px 40px rgba(79, 70, 229, 0.22);
   outline: none;
 }
-
-
+/* COMMENT */
+/* COMMENT */
 .toast {
   position: fixed;
   bottom: 30px;
