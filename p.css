@@ -52,7 +52,7 @@ body {
   color: #6b7280;
   font-size: 1rem;
 }
-
+/* COMMENT */
 .password-display {
   display: flex;
   align-items: center;
@@ -65,7 +65,7 @@ body {
   word-break: break-all;
   border: 1px solid #e0e7ff;
 }
-
+/* COMMENT */
 .copy-btn {
   background: #e0e7ff;
   border: none;
@@ -77,7 +77,7 @@ body {
   color: #4f46e5;
   transition: background 0.2s, color 0.2s;
 }
-
+/* COMMENT */
 #copy-btn:hover {
   background: #6366f1;
   color: #fff;
