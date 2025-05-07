@@ -6,7 +6,7 @@
 }
 
 body {
-  background: linear-gradient(to right, #d8b39d, #e3c2a4); /* Lighter, soft brown gradient */
+  background: linear-gradient(to right, #d8b38d, #e3c2a4); /* Lighter, soft brown gradient */
   min-height: 100vh;
   display: flex;
   align-items: center;
