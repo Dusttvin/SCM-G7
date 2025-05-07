@@ -68,7 +68,7 @@ body {
   content: "✅";
   position: absolute;
   left: 0;
-  color: #d32f2f; /* Changed to deep red */
+  color: #d32f2f; 
 }
 
 .how-it-works p {
