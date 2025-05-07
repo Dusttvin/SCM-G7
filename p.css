@@ -146,6 +146,7 @@ input[type="range"] {
   font-weight: 700;
   cursor: pointer;
   width: 85%;                       
+
   max-width: 380px;                 
   box-shadow: 0 8px 32px rgba(79, 70, 229, 0.18);
   letter-spacing: 0.04em;
@@ -160,6 +161,19 @@ input[type="range"] {
   box-shadow: 0 16px 40px rgba(79, 70, 229, 0.22);
   outline:auto;
 }
+
+
+
+/* COMMENT */
+.generate-btn:hover,/* COMMENT */
+.generate-btn:focus {/* COMMENT */
+  background: linear-gradient(90deg, #4f46e5 0%, #7c3aed 100%);/* COMMENT */
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 16px 40px rgba(79, 70, 229, 0.22);
+  outline: none;
+}
+/* COMMENT */
+/* COMMENT */
 
 .toast {
   position: fixed;
